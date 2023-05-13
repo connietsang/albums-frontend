@@ -1,25 +1,26 @@
 import logo from './logo.svg';
+import React, { useState } from "react";
+import Albums from "./Albums";
+
 import './App.css';
 
-function App() {
+export default function App(){
+
+  const [showingAlbums, setShowingAlbums] = useState(false)
+
+  const listAlbums = () => {
+    setShowingAlbums(prev => !prev)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Albums />
+      {/* {showingAlbums 
+      ?
+        <Albums />
+      :
+        <button>Hide albums</button>
+      } */}
     </div>
   );
 }
-
-export default App;
